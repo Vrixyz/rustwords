@@ -2,12 +2,11 @@
 
 DEVICE = ${DEVICE_ID}
 ifndef DEVICE_ID
-	DEVICE=$(shell xcrun simctl list devices 'iOS' | grep -v 'unavailable' | grep -v '^--' | grep -v '==' | head -n 1 | grep -E -o -i "([0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12})"
+	DEVICE=$(shell xcrun simctl list devices 'iOS' | grep -v 'unavailable' | grep -v '^--' | grep -v '==' | head -n 1 | grep -E -o -i "([0-9a-f]{8}-([0-9a-f]{4}-){3}[0-9a-f]{12})")
 endif
 
 run: install
-    # Todo: change the bundle identifier (then remove this comment :P)
-	xcrun simctl launch --console $(DEVICE) me.nikl.bevygame
+	xcrun simctl launch --console $(DEVICE) com.thierryberger.rustwords
 
 boot-sim:
 	xcrun simctl boot $(DEVICE) || true

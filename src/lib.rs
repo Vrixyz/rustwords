@@ -1,6 +1,7 @@
 #![allow(clippy::type_complexity)]
 
 mod actions;
+mod ads;
 mod audio;
 mod loading;
 mod menu;
@@ -41,6 +42,7 @@ impl Plugin for GamePlugin {
             ActionsPlugin,
             InternalAudioPlugin,
             PlayerPlugin,
+            ads::AdsPlugin,
         ));
 
         #[cfg(debug_assertions)]
