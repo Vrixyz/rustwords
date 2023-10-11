@@ -8,3 +8,5 @@ typedef struct Doggo {
 } Doggo;
 
 void display_ad(UIWindow* window, UIViewController* viewController);
+
+extern UIView* shownAd;
