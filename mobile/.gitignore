@@ -1,3 +1,7 @@
 mobile.xcodeproj/xcuserdata/
 mobile.xcodeproj/project.xcworkspace/
 build/
+.env
+Pods/
+mobile.xcworkspace/xcuserdata
+mobile.xcworkspace/xcshareddata

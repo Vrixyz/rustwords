@@ -1,0 +1,2 @@
+- we use cocoapods for dependencies, so use `pod install` then `open mobile.xcworkspace` (not the xcodeproj)
+- Set your `APP_LOVIN_SDK_KEY` correctly.
