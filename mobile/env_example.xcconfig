@@ -1,0 +1,19 @@
+//
+//  env_example.xcconfig
+//  mobile
+//
+//  Created by Thierry Berger on 13/10/2023.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Thanks https://kazaimazai.com/secret-env-vars-xcode-ci/
+
+// TODO: Create a env_debug.xcconfig and an env_release.xcconfig file.
+
+//#include "Pods/Targets Support Files/Pods-mobile/Pods-mobile.release.xcconfig"
+#include "Pods/Target Support Files/Pods-mobile/Pods-mobile.debug.xcconfig"
+
+APP_LOVIN_SDK_KEY=example
+

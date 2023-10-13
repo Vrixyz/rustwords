@@ -1,12 +1,16 @@
-#include <UIKit/UIKit.h>
+#import <UIKit/UIKit.h>
+#import "AdApplovinViewController.h"
 
 void main_rs(void);
 
-typedef struct Doggo {
-    int many;
-    char wow;
-} Doggo;
-
 void display_ad(UIWindow* window, UIViewController* viewController);
 
-extern UIView* shownAd;
+void didLoadAd(void);//(MAAd *)ad
+
+void didFailToLoadAdForAdUnitIdentifier(void);//:(NSString *)adUnitIdentifier withError:(MAError *)error
+void didDisplayAd(void);//:(MAAd *)ad {}
+void didClickAd(void);//(MAAd *)ad
+void didHideAd(void);//:(MAAd *)ad
+void didFailToDisplayAd(void);//:(MAAd *)ad withError:(MAError *)error
+
+extern AdApplovinViewController* shownAd;
