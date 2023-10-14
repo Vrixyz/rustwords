@@ -50,6 +50,7 @@ int main(void) {
 AdApplovinController* adController = nil;
 UIViewController* _originalViewController = nil;
 UIWindow* _window;
+rust_callback display_ad_end_callback;
 
 void init_ads(UIWindow* window, UIViewController* viewController) {
     adController = [[AdApplovinController alloc] init];
@@ -58,28 +59,7 @@ void init_ads(UIWindow* window, UIViewController* viewController) {
     _originalViewController = viewController;
 }
 
-void display_ad(void) {
-    //_window.rootViewController = adVC;
+void display_ad_objc(rust_callback callback) {
+    display_ad_end_callback = callback;
     [adController showAd];
 }
-/*
-void display_ad(UIWindow* window, UIViewController* viewController) {
-    if (shownAd != nil) {
-        NSLog( @"Ad already showing.");
-        return;
-    }
-    shownAd = [[[NSBundle mainBundle] loadNibNamed:@"Ad" owner:viewController options:nil] objectAtIndex:0];
-    shownAd.frame = viewController.view.frame;
-    [viewController.view addSubview:shownAd];
-}*/
-
-/*
-void close_ad() {
-    if (shownAd == nil) {
-        NSLog( @"Ad not showing.");
-        return;
-    }
-    [shownAd removeFromSuperview];
-    shownAd = nil;
-}
-*/

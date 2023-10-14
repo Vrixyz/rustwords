@@ -10,7 +10,6 @@ use std::panic;
 /// External obj-c function to append an Ad in the game
 extern "C" {
     pub fn init_ads(ui_window: *mut c_void, ui_view_controller: *mut c_void);
-    pub fn display_ad();
 }
 
 pub struct AdsPlugin;
@@ -77,7 +76,7 @@ fn bevy_display_ad(touches: Res<Touches>) {
             touch.position()
         );
         unsafe {
-            display_ad();
+            ::ads::display_ad(|| {});
         }
     }
 }

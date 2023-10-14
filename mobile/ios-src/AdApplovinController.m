@@ -63,7 +63,11 @@
 {
     // Interstitial ad is hidden. Pre-load the next ad
     [self.interstitialAd loadAd];
-    didHideAd();
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        didHideAd();
+        display_ad_end_callback();
+    });
 }
 
 - (void)didFailToDisplayAd:(MAAd *)ad withError:(MAError *)error

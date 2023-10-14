@@ -87,6 +87,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f26201604c87b1e01bd3d98f8d5d9a8fcbb815e8cedb41ffccbeb4bf593a35fe"
 
 [[package]]
+name = "ads"
+version = "0.1.0"
+dependencies = [
+ "tracing",
+]
+
+[[package]]
 name = "ahash"
 version = "0.8.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2745,6 +2752,7 @@ dependencies = [
 name = "rustwords"
 version = "0.1.0"
 dependencies = [
+ "ads",
  "bevy",
  "bevy_asset_loader",
  "bevy_kira_audio",
