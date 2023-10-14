@@ -31,6 +31,7 @@
     [self showAd];
     
     // TODO:
+    // 0: request app tracking transparency
     // 1: init from rust, start loading there.
     // 2: send callbacks to rust
     // 3: call showAd from rust (know when we've loaded ad, and show ad when ready.
