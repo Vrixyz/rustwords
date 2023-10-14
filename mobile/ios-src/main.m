@@ -1,7 +1,7 @@
 #import <stdio.h>
 
 #import "bindings.h"
-#import "AdApplovinViewController.h"
+#import "AdApplovinController.h"
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
 
 void request_att(void) {
@@ -34,7 +34,7 @@ void request_att(void) {
     }];
 }
 
-int main() {
+int main(void) {
     double delayInSeconds = 1.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC)); // 1
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){ // 2
@@ -47,15 +47,20 @@ int main() {
     return 0;
 }
 
-AdApplovinViewController* shownAd = nil;
-UIViewController* originalViewController = nil;
+AdApplovinController* adController = nil;
+UIViewController* _originalViewController = nil;
+UIWindow* _window;
 
+void init_ads(UIWindow* window, UIViewController* viewController) {
+    adController = [[AdApplovinController alloc] init];
+    [adController createInterstitialAd];
+    _window = window;
+    _originalViewController = viewController;
+}
 
-void display_ad(UIWindow* window, UIViewController* viewController) {
-    originalViewController = viewController;
-    AdApplovinViewController *adVC = [[AdApplovinViewController alloc] init];
-    window.rootViewController = adVC;
-    [adVC createInterstitialAd];
+void display_ad(void) {
+    //_window.rootViewController = adVC;
+    [adController showAd];
 }
 /*
 void display_ad(UIWindow* window, UIViewController* viewController) {
@@ -68,15 +73,6 @@ void display_ad(UIWindow* window, UIViewController* viewController) {
     [viewController.view addSubview:shownAd];
 }*/
 
-void close_ad() {
-    if (shownAd == nil) {
-        NSLog( @"Ad not showing.");
-        return;
-    }
-    UIWindow* currentWindow = shownAd.view.window;
-    currentWindow.rootViewController = originalViewController;
-    shownAd = nil;
-}
 /*
 void close_ad() {
     if (shownAd == nil) {

@@ -3,9 +3,9 @@
 #import <UIKit/UIKit.h>
 #import <GameKit/GameKit.h>
 #import <Foundation/Foundation.h>
-#import "AdApplovinViewController.h"
+#import "AdApplovinController.h"
 
-@implementation AdApplovinViewController
+@implementation AdApplovinController
 
 - (void)createInterstitialAd
 {
@@ -28,8 +28,7 @@
 
     // Reset retry attempt
     self.retryAttempt = 0;
-    [self showAd];
-    
+    didLoadAd();
     // TODO:
     // 0: request app tracking transparency
     // 1: init from rust, start loading there.
@@ -49,22 +48,29 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delaySec * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self.interstitialAd loadAd];
     });
+    didFailToLoadAdForAdUnitIdentifier();
 }
 
-- (void)didDisplayAd:(MAAd *)ad {}
+- (void)didDisplayAd:(MAAd *)ad {
+    didDisplayAd();
+}
 
-- (void)didClickAd:(MAAd *)ad {}
+- (void)didClickAd:(MAAd *)ad {
+    didClickAd();
+}
 
 - (void)didHideAd:(MAAd *)ad
 {
     // Interstitial ad is hidden. Pre-load the next ad
     [self.interstitialAd loadAd];
+    didHideAd();
 }
 
 - (void)didFailToDisplayAd:(MAAd *)ad withError:(MAError *)error
 {
     // Interstitial ad failed to display. We recommend loading the next ad
     [self.interstitialAd loadAd];
+    didFailToDisplayAd();
 }
 
 @end

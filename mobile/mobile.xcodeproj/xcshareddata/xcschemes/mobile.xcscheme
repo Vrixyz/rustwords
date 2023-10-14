@@ -53,7 +53,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "RUST_LOG"
-            value = "info,winit=error"
+            value = "info,winit=error,wgpu_hal=error,wgpu_core=error"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
