@@ -10,7 +10,7 @@
 @property (nonatomic, assign) NSInteger retryAttempt;
 
 - (void)createInterstitialAd;
-- (void)showAd;
+- (void)showAdForPlacement:(nullable NSString*)placement_id;
 
 @end
 #endif /* AdApplovinViewController_h */

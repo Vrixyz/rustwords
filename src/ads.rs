@@ -75,8 +75,6 @@ fn bevy_display_ad(touches: Res<Touches>) {
             touch.id(),
             touch.position()
         );
-        unsafe {
-            ::ads::display_ad(|| {});
-        }
+        ::ads::display_ad(Some("test"), || {});
     }
 }

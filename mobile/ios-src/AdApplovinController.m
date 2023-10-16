@@ -16,8 +16,8 @@
     [self.interstitialAd loadAd];
 }
 
-- (void)showAd {
-    [self.interstitialAd showAd];
+- (void)showAdForPlacement:(nullable NSString*)placement_id {
+    [self.interstitialAd showAdForPlacement:placement_id];
 }
 
 #pragma mark - MAAdDelegate Protocol
@@ -78,13 +78,3 @@
 }
 
 @end
-
-/*
-int main(int argc, char *argv[]) {
-    @autoreleasepool {
-        [GADMobileAds.sharedInstance startWithCompletionHandler:nil];
-        main_rs();
-    }
-    return 0;
-}
-*/

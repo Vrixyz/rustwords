@@ -9,7 +9,7 @@ void main_rs(void);
 void init_ads(UIWindow *window, UIViewController *viewController);
 typedef void (*rust_callback)(void);
 extern rust_callback display_ad_end_callback;
-void display_ad_objc(rust_callback);
+void display_ad_objc(NSString* placement_id, rust_callback);
 
 void didLoadAd(void);                          //(MAAd *)ad
 void didFailToLoadAdForAdUnitIdentifier(void); //:(NSString *)adUnitIdentifier withError:(MAError *)error
